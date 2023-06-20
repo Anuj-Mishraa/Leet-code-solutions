@@ -12,7 +12,6 @@ class Solution:
         max_level = 1
         max_sum = float('-inf')
         level = 1
-
         while queue:
             level_sum = 0
             next_level = []
