@@ -5,14 +5,15 @@ class Solution:
         if nums.count(target)==1:
             a = nums.index(target)
             return [a,a]
-        ans = []
-        for i in range(len(nums)-1,-1,-1):
-            if nums[i]==target:
-                ans.append(i)
-                break
-        for i in range(len(nums)):
-            if nums[i]==target:
-                ans.append(i)
-                break
-        return ans[::-1]
+        # for i in range(len(nums)-1,-1,-1):
+        #     if nums[i]==target:
+        #         ans.append(i)
+        #         break
+        # for i in range(len(nums)):
+        #     if nums[i]==target:
+        #         ans.append(i)
+        #         break
+        i = bisect.bisect_left(nums,target,0,len(nums))
+        j = bisect.bisect_right(nums,target,0,len(nums))-1
+        return [i,j]
             
