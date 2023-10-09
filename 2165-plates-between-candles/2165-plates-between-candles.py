@@ -1,4 +1,3 @@
-import bisect
 class Solution:
     def platesBetweenCandles(self, s: str, queries: List[List[int]]) -> List[int]:
         plt_idx = [i for i in range(len(s)) if s[i]=='|']
