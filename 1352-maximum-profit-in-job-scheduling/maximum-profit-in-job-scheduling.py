@@ -13,9 +13,9 @@ class Solution:
                 cur_p += dp[idx]
             dp[i] = max(cur_p,dp[i-1])
         return dp[-1]
-    def latest_end(self,arr, x, lo=0, hi=None):
-        if hi is None:
-            hi = len(arr)
+    def latest_end(self,arr, x):
+        hi = len(arr)
+        lo = 0
         while lo < hi:
             mid = (lo + hi) // 2
             if arr[mid] > x:
