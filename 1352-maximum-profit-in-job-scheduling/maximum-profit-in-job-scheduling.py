@@ -13,15 +13,13 @@ class Solution:
                 cur_p += dp[idx]
             dp[i] = max(cur_p,dp[i-1])
         return dp[-1]
-    def latest_end(self,sorted_list, target):
-        left, right = 0, len(sorted_list)
-
-        while left < right:
-            mid = left + (right - left) // 2
-
-            if sorted_list[mid] > target:
-                right = mid
+    def latest_end(self,arr, x, lo=0, hi=None):
+        if hi is None:
+            hi = len(arr)
+        while lo < hi:
+            mid = (lo + hi) // 2
+            if arr[mid] > x:
+                hi = mid
             else:
-                left = mid + 1
-
-        return left
+                lo = mid + 1
+        return lo
