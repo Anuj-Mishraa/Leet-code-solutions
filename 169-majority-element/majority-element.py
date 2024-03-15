@@ -1,14 +1,17 @@
-class Solution(object):
-    def majorityElement(self, nums):
-        maj = nums[0]
-        count = 1
-        n = len(nums)
-        for i in range(1,n):
-            if(count==0):
-                count+=1
-                maj = nums[i]
-            elif(nums[i]==maj):
-                count+=1
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        mj = len(nums)//2
+        mp = {}
+        for i in nums:
+            if i in mp:
+                mp[i] += 1
+                if mp[i]>mj:
+                    return i
             else:
-                count-=1
-        return maj
+                mp[i] = 1
+        for i in mp:
+            if mp[i]>mj:
+                return i
+
+        
+                
